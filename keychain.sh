@@ -11,7 +11,7 @@ do
 			shift 1;;
 		-u) GETUSER=1;
 			shift 1;;
-		-a) ACCOUNT=$2;
+		-s) SERVICE=$2;
 			shift 2;;
 		-v) verbose=1;
 			shift 1;;
@@ -20,7 +20,7 @@ do
 	esac
 done
 
-SEC=`security find-generic-password -a $ACCOUNT -g 2>&1`
+SEC=`security find-generic-password -s $SERVICE -g 2>&1`
 
 function getAttribute() {
 	echo `echo "$SEC" | grep "$1" | cut -d \" -f 4`
