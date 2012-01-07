@@ -1,4 +1,5 @@
 # Keychain Access
+================================
 
 I got annoyed that:
 
@@ -16,7 +17,7 @@ First add the username and password to the osx keychain
 Then use the keychain script to get the username and password
 
 ```bash
-nygmail () {
+gmail () {
     USER=`keychain -u -s google`
     PASS=`keychain -p -s google`
 
