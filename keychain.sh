@@ -15,7 +15,7 @@ do
 			shift 2;;
 		-v) verbose=1;
 			shift 1;;
-		*)  echo "Option [$1] not one of  [p, u, a, v]";    # Error (!)
+		*)  echo "Option [$1] not one of  [p, u, s, v]";    # Error (!)
 			exit;;
 	esac
 done
