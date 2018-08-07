@@ -13,7 +13,7 @@ do
 			shift 1;;
 		-s) SERVICE=$2;
 			shift 2;;
-        -k) KEYCHAIN=$3;
+		-k) KEYCHAIN=$3;
 			shift 2;;
 		-v) verbose=1;
 			shift 1;;
