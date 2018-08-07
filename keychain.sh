@@ -13,6 +13,8 @@ do
 			shift 1;;
 		-s) SERVICE=$2;
 			shift 2;;
+        -k) KEYCHAIN=$3;
+			shift 2;;
 		-v) verbose=1;
 			shift 1;;
 		*)  echo "Option [$1] not one of  [p, u, s, v]";    # Error (!)
@@ -20,7 +22,7 @@ do
 	esac
 done
 
-SEC=`security find-generic-password -s $SERVICE -g 2>&1`
+SEC=`security find-generic-password -s $SERVICE -g $KEYCHAIN 2>&1`
 
 function getAttribute() {
 	echo `echo "$SEC" | grep "$1" | cut -d \" -f 4`
