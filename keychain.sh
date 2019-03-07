@@ -2,6 +2,7 @@
 
 GETPASS=0
 GETUSER=0
+DEBUG=0
 KEYCHAIN=""
 
 while [ "$1" != "" ]
@@ -16,12 +17,21 @@ do
 			shift 2;;
 		-k) KEYCHAIN=$2;
 			shift 2;;
-		-v) verbose=1;
+		-d) DEBUG=1;
 			shift 1;;
-		*)  echo "Option [$1] not one of  [p, u, s, v, k]";    # Error (!)
+		*)  echo "Option [$1] not one of  [p, u, s, k, d]";    # Error (!)
 			exit;;
 	esac
 done
+
+if test $DEBUG -gt 0 ; then
+    echo "DEBUG INFO"
+    echo " -p = $GETPASS"
+    echo " -u = $GETUSER"
+    echo " -s = $SERVICE"
+    echo " -k = $KEYCHAIN"
+    echo " -d = $DEBUG"
+fi
 
 SEC=`security find-generic-password -s $SERVICE -g $KEYCHAIN 2>&1`
 
